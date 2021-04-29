@@ -25,7 +25,7 @@ interface ExObj {
 
 const calculateExercise = (r: number, e: number[]): ExObj => {
 
-const  trainingDays= e.filter((ex, exInd) => ex>0)
+const  trainingDays= e.filter((ex) => ex>0)
 const avg = (e.reduce((acc, curr)=> acc+curr,0))/e.length
 
 const success= avg>=r
