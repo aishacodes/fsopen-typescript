@@ -10,8 +10,8 @@ const parseArg=(arg:Array<string>):Value=>{
         r: Number(arg[2]),
         ex: arg.slice(3).map(n=> Number(n))
 
-    }
-}
+    };
+};
 
 interface ExObj {
   periodLength: number;
@@ -25,12 +25,12 @@ interface ExObj {
 
 const calculateExercise = (r: number, e: number[]): ExObj => {
 
-const  trainingDays= e.filter((ex) => ex>0)
-const avg = (e.reduce((acc, curr)=> acc+curr,0))/e.length
+const  trainingDays= e.filter((ex) => ex>0);
+const avg = (e.reduce((acc, curr)=> acc+curr,0))/e.length;
 
-const success= avg>=r
+const success= avg>=r;
 
-const ratingDescription = success?"Good":"not too bad but could be better"
+const ratingDescription = success?"Good":"not too bad but could be better";
 
   return  {
   periodLength: e.length,
@@ -40,12 +40,12 @@ const ratingDescription = success?"Good":"not too bad but could be better"
   ratingDescription,
   target: r,
   average: avg
-}
+};
 };
 
 try {
-    const {r, ex}=parseArg(process.argv)
-    console.log(calculateExercise( r, ex))
+    const {r, ex}=parseArg(process.argv);
+    console.log(calculateExercise( r, ex));
 
 } catch (error) {
       console.log("Error, something bad happened, message: ", error.message);
