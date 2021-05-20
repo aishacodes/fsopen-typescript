@@ -1,17 +1,21 @@
 interface Value{
-    r:number,
+    t:number,
     ex:Array<number>
 
 }
-const parseArg=(arg:Array<string>):Value=>{
+
+
+  const parseArg=(arg:Array<string>):Value=>{
       if (arg.length < 4) throw new Error("Not enough arguments");
 
     return{
-        r: Number(arg[2]),
+        t: Number(arg[2]),
         ex: arg.slice(3).map(n=> Number(n))
 
     };
 };
+
+
 
 interface ExObj {
   periodLength: number;
@@ -23,12 +27,12 @@ interface ExObj {
   average: number;
 }
 
-const calculateExercise = (r: number, e: number[]): ExObj => {
+const calculateExercise = (t: number, e: number[]): ExObj => {
 
 const  trainingDays= e.filter((ex) => ex>0);
 const avg = (e.reduce((acc, curr)=> acc+curr,0))/e.length;
 
-const success= avg>=r;
+const success= avg>=t;
 
 const ratingDescription = success?"Good":"not too bad but could be better";
 
@@ -36,19 +40,20 @@ const ratingDescription = success?"Good":"not too bad but could be better";
   periodLength: e.length,
   trainingDays:  trainingDays.length,
   success,
-  rating: r,
+  rating: avg>=t? 3 :avg<t && avg >(t/2)?2:1 ,
   ratingDescription,
-  target: r,
+  target: t,
   average: avg
 };
 };
 
 try {
-    const {r, ex}=parseArg(process.argv);
-    console.log(calculateExercise( r, ex));
+    const {t, ex}=parseArg(process.argv);
+    console.log(calculateExercise( t, ex));
 
 } catch (error) {
       console.log("Error, something bad happened, message: ", error.message);
 
 }
 
+export= calculateExercise;
