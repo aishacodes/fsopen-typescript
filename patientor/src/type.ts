@@ -4,3 +4,15 @@ export interface iDiagnoses {
   latin?:string
 }
 
+export type gender = 'male' | 'female'
+
+export interface iPatients{
+  id: string,
+  name: string,
+  dateOfBirth: string,
+  ssn: string,
+  gender: gender,
+  occupation: string
+
+}
+export type iPatienrWithoutSsn = Omit<iPatients, 'ssn'>
