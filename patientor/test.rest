@@ -11,8 +11,8 @@ POST http://localhost:3001/api/patients
 content-type:application/json
 
 {
-  "name":"Aishat",
-  "dateOfBirth": "23-04-2000",
+  "name":"Aishat Tolu",
+  "dateOfBirth": "2000-07-02",
   "ssn": "090786-122X",
   "gender": "male",
   "occupation": "New york city cop"

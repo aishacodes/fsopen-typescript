@@ -1,12 +1,14 @@
-import { type } from "os"
-
+export enum gender {
+  Male= 'male',
+  Female = 'female'
+}
 export interface iDiagnoses {
   code: string,
   name:string,
   latin?:string
 }
 
-export type gender = 'male' | 'female'
+// export type gender = 'male' | 'female'
 
 export interface iPatients{
   id: string,
