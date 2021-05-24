@@ -1,3 +1,5 @@
+import { type } from "os"
+
 export interface iDiagnoses {
   code: string,
   name:string,
@@ -16,3 +18,4 @@ export interface iPatients{
 
 }
 export type iPatienrWithoutSsn = Omit<iPatients, 'ssn'>
+export type newEntry = Omit<iPatients, 'id'>
